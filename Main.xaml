@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1104,1202.4" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:upaf="clr-namespace:UiPath.Persistence.Activities.FormTask;assembly=UiPath.Persistence.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1104,1484" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:upaf="clr-namespace:UiPath.Persistence.Activities.FormTask;assembly=UiPath.Persistence.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="29">
       <x:String>System.Activities</x:String>
@@ -73,24 +73,30 @@
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="400,1137.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="400,1419.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="reAmbursment" />
       <Variable x:TypeArguments="x:Int32" Name="ApprovedAmpounts" />
       <Variable x:TypeArguments="upaf:FormTaskData" Name="taskk" />
       <Variable x:TypeArguments="x:String" Name="taskAction" />
+      <Variable x:TypeArguments="x:String" Name="taskCatalog" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="356.8,241.6" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="Enter the Task Catalog" Title="Task Catalog">
+      <ui:InputDialog.Result>
+        <OutArgument x:TypeArguments="x:String">[taskCatalog]</OutArgument>
+      </ui:InputDialog.Result>
+    </ui:InputDialog>
     <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="356.8,241.6" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Reambursment amount to be Approved" Title="Enter your reambursment amount to be Approved">
       <ui:InputDialog.Result>
         <OutArgument x:TypeArguments="x:Int32">[reAmbursment]</OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
-    <upaf:CreateFormTask BucketFolderPath="{x:Null}" BucketName="{x:Null}" BulkFormLayout="{x:Null}" DynamicFormPath="{x:Null}" ExternalTag="{x:Null}" Labels="{x:Null}" TaskCatalog="{x:Null}" TimeoutMs="{x:Null}" BulkFormLayoutGuid="e89c0362-b06b-4d8d-ab81-d9b95bfcc838" DisplayName="Create Form Task" EnableBulkEdit="False" EnableDynamicForms="False" FormLayout="%[{&quot;label&quot;:&quot;in_reAmount&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;type&quot;:&quot;number&quot;,&quot;input&quot;:true,&quot;key&quot;:&quot;in_reAmount&quot;},{&quot;label&quot;:&quot;out_ApproveAmount&quot;,&quot;tableView&quot;:true,&quot;type&quot;:&quot;number&quot;,&quot;input&quot;:true,&quot;key&quot;:&quot;out_ApproveAmount&quot;},{&quot;mask&quot;:false,&quot;customClass&quot;:&quot;uipath-button-container&quot;,&quot;tableView&quot;:true,&quot;alwaysEnabled&quot;:false,&quot;type&quot;:&quot;table&quot;,&quot;input&quot;:false,&quot;key&quot;:&quot;key&quot;,&quot;label&quot;:&quot;label&quot;,&quot;rows&quot;:[[{&quot;components&quot;:[{&quot;type&quot;:&quot;button&quot;,&quot;label&quot;:&quot;Submit&quot;,&quot;key&quot;:&quot;submit&quot;,&quot;disableOnInvalid&quot;:true,&quot;input&quot;:true,&quot;alwaysEnabled&quot;:false,&quot;tableView&quot;:true}]},{&quot;components&quot;:[]},{&quot;components&quot;:[]},{&quot;components&quot;:[]},{&quot;components&quot;:[]},{&quot;components&quot;:[]}]],&quot;numRows&quot;:1,&quot;numCols&quot;:6,&quot;reorder&quot;:false}]" FormLayoutGuid="c4b0d48d-addd-419e-a93c-391e16779c90" GenerateInputFields="True" sap:VirtualizedContainerService.HintSize="356.8,372" sap2010:WorkflowViewState.IdRef="CreateFormTask_2" TaskOutput="[taskk]" TaskPriority="[TaskPriority.Medium]" TaskTitle="Please Approve the expense Amount">
+    <upaf:CreateFormTask BucketFolderPath="{x:Null}" BucketName="{x:Null}" BulkFormLayout="{x:Null}" DynamicFormPath="{x:Null}" ExternalTag="{x:Null}" Labels="{x:Null}" TimeoutMs="{x:Null}" BulkFormLayoutGuid="e89c0362-b06b-4d8d-ab81-d9b95bfcc838" DisplayName="Create Form Task" EnableBulkEdit="False" EnableDynamicForms="False" FormLayout="%[{&quot;label&quot;:&quot;in_reAmount&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;type&quot;:&quot;number&quot;,&quot;input&quot;:true,&quot;key&quot;:&quot;in_reAmount&quot;},{&quot;label&quot;:&quot;out_ApproveAmount&quot;,&quot;tableView&quot;:true,&quot;type&quot;:&quot;number&quot;,&quot;input&quot;:true,&quot;key&quot;:&quot;out_ApproveAmount&quot;},{&quot;mask&quot;:false,&quot;customClass&quot;:&quot;uipath-button-container&quot;,&quot;tableView&quot;:true,&quot;alwaysEnabled&quot;:false,&quot;type&quot;:&quot;table&quot;,&quot;input&quot;:false,&quot;key&quot;:&quot;key&quot;,&quot;label&quot;:&quot;label&quot;,&quot;rows&quot;:[[{&quot;components&quot;:[{&quot;type&quot;:&quot;button&quot;,&quot;label&quot;:&quot;Submit&quot;,&quot;key&quot;:&quot;submit&quot;,&quot;disableOnInvalid&quot;:true,&quot;input&quot;:true,&quot;alwaysEnabled&quot;:false,&quot;tableView&quot;:true}]},{&quot;components&quot;:[]},{&quot;components&quot;:[]},{&quot;components&quot;:[]},{&quot;components&quot;:[]},{&quot;components&quot;:[]}]],&quot;numRows&quot;:1,&quot;numCols&quot;:6,&quot;reorder&quot;:false}]" FormLayoutGuid="c4b0d48d-addd-419e-a93c-391e16779c90" GenerateInputFields="True" sap:VirtualizedContainerService.HintSize="356.8,372" sap2010:WorkflowViewState.IdRef="CreateFormTask_2" TaskCatalog="[taskCatalog]" TaskOutput="[taskk]" TaskPriority="[TaskPriority.Medium]" TaskTitle="Please Approve the expense Amount">
       <upaf:CreateFormTask.FormData>
         <InArgument x:TypeArguments="x:Int32" x:Key="in_reAmount">
           <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="reAmbursment" />
@@ -101,6 +107,6 @@
       </upaf:CreateFormTask.FormData>
     </upaf:CreateFormTask>
     <upaf:WaitForFormTaskAndResume StatusMessage="{x:Null}" TimeoutMs="{x:Null}" WaitItemDataObject="{x:Null}" DisplayName="Wait for Form Task and Resume" sap:VirtualizedContainerService.HintSize="356.8,221.6" sap2010:WorkflowViewState.IdRef="WaitForFormTaskAndResume_1" TaskAction="[taskAction]" TaskInput="[taskk]" TaskOutput="[taskk]" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.80000000000001" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Approved Amount : &quot;+ApprovedAmpounts.ToString]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="356.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Approved Amount : &quot;+ApprovedAmpounts.ToString]" />
   </Sequence>
 </Activity>
